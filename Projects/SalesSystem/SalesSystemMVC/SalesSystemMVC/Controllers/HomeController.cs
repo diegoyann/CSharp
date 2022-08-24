@@ -17,7 +17,8 @@ namespace SalesSystemMVC.Controllers
 
 		public IActionResult About()
 		{
-			ViewData["Message"] = "Your application description page.";
+			ViewData["Message"] = "This application was developed during the Csharp course from Udemy.";
+			ViewData["Developer"] = "Diego Yann";
 
 			return View();
 		}
