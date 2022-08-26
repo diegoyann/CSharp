@@ -51,7 +51,7 @@ namespace SalesSystemMVC.Controllers
 				return NotFound();
 			}
 			var obj = _sellerService.FindById(id.Value);
-			if(obj == null)
+			if (obj == null)
 			{
 				return NotFound();
 			}
@@ -60,10 +60,26 @@ namespace SalesSystemMVC.Controllers
 		}
 		[HttpPost]
 		[ValidateAntiForgeryToken]
-		public IActionResult Delete (int id)
+		public IActionResult Delete(int id)
 		{
 			_sellerService.Remove(id);
 			return RedirectToAction(nameof(Index));
 		}
+
+		public IActionResult Details(int? id)
+		{
+			if (id == null)
+			{
+				return NotFound();
+			}
+			var obj = _sellerService.FindById(id.Value);
+			if (obj == null)
+			{
+				return NotFound();
+			}
+
+			return View(obj);
+		}
+
 	}
 }
